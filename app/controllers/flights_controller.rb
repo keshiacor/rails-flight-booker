@@ -1,6 +1,6 @@
 class FlightsController < ApplicationController
   def index
-    @airports = Airport.all.pluck(:code)
+    @airports = Airport.order(:code).pluck(:code)
     @dates = Flight.pluck(:departure_time).map(&:to_date).uniq
 
     if params[:departure_airport_code].present?
