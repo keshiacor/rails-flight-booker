@@ -1,9 +1,9 @@
 <%= form_with  url: flights_path, method: :get do |form| %>
   <h1> Search for Flights to your favorite destinations</h1>
-  <%= form.label :departure_airport_id, "Departure Airport" %>  
-  <%= form.select :departure_airport_id, options_for_select(@airports, params[:departure_airport_id]) %>
-  <%= form.label :arrival_airport_id, "Arrival Airport" %>
-  <%= form.select :arrival_airport_id, options_for_select(@airports, params[:arrival_airport_id]) %>
+  <%= form.label :departure_airport_code, "Departure Airport" %>  
+  <%= form.select :departure_airport_code, options_for_select(@airports, params[:departure_airport_code]) %>
+  <%= form.label :arrival_airport_code, "Arrival Airport" %>
+  <%= form.select :arrival_airport_code, options_for_select(@airports, params[:arrival_airport_code]) %>
   <%= form.label :passenger_count, "Number of Passengers" %>
   <%= form.select :passenger_count, options_for_select(1..4, params[:passenger_count]&.to_i) %>
   <%= form.label :departure_time, "Date of Flight" %>
