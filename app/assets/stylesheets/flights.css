@@ -1,0 +1,114 @@
+/* ── Retro Watercolor Flight Booker ── */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lora:wght@400;500&display=swap');
+
+:root {
+  --peach:       #f5c6a5;
+  --peach-light: #fce4d4;
+  --purple:      #b197c9;
+  --purple-light:#ddd0eb;
+  --purple-dark: #7b5ea0;
+  --cream:       #fdf6ef;
+  --text:        #3e2f4f;
+  --border:      #d4b8e0;
+}
+
+/* ── Base ── */
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Lora', Georgia, serif;
+  color: var(--text);
+  background:
+    radial-gradient(ellipse at 20% 30%, rgba(245,198,165,.45) 0%, transparent 60%),
+    radial-gradient(ellipse at 75% 60%, rgba(177,151,201,.35) 0%, transparent 55%),
+    radial-gradient(ellipse at 50% 90%, rgba(245,198,165,.3)  0%, transparent 50%),
+    var(--cream);
+}
+
+/* ── Page wrapper ── */
+.flight-search {
+  max-width: 520px;
+  margin: 80px auto;
+  padding: 40px 36px;
+  background: rgba(255,255,255,.55);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 8px 32px rgba(123,94,160,.12);
+}
+
+/* ── Heading ── */
+.flight-search__title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.65rem;
+  font-weight: 700;
+  text-align: center;
+  margin: 0 0 32px;
+  color: var(--purple-dark);
+  letter-spacing: .02em;
+}
+
+/* ── Form field group ── */
+.flight-search__field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+/* ── Labels ── */
+.flight-search__field label {
+  font-size: .82rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  margin-bottom: 6px;
+  color: var(--purple-dark);
+}
+
+/* ── Select inputs ── */
+.flight-search__field select {
+  appearance: none;
+  font-family: 'Lora', Georgia, serif;
+  font-size: .95rem;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--cream) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237b5ea0' stroke-width='1.5' fill='none'/%3E%3C/svg%3E") no-repeat right 14px center;
+  color: var(--text);
+  cursor: pointer;
+  transition: border-color .2s, box-shadow .2s;
+}
+
+.flight-search__field select:focus {
+  outline: none;
+  border-color: var(--purple);
+  box-shadow: 0 0 0 3px rgba(177,151,201,.3);
+}
+
+/* ── Submit button ── */
+.flight-search__submit {
+  display: block;
+  width: 100%;
+  margin-top: 28px;
+  padding: 12px;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  color: #fff;
+  background: linear-gradient(135deg, var(--purple) 0%, var(--peach) 100%);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: opacity .2s, transform .15s;
+}
+
+.flight-search__submit:hover {
+  opacity: .88;
+  transform: translateY(-1px);
+}
+
+.flight-search__submit:active {
+  transform: translateY(0);
+}
