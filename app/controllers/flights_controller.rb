@@ -8,9 +8,10 @@ class FlightsController < ApplicationController
       @flights = Flight.where(departure_airport_code: params[:departure_airport_code],
       arrival_airport_code: params[:arrival_airport_code],
       departure_time: date.beginning_of_day..date.end_of_day)
-
+      @searched_for_flight = true
     else
       @flights = Flight.none
+      @searched_for_flight = false
     end
   end
 
