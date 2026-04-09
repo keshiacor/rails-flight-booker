@@ -21,7 +21,34 @@
       <%= form.label :departure_time, "Date of Flight" %>
       <%= form.select :departure_time, options_for_select(@dates, params[:departure_time]) %>
     </div>
-
     <%= form.submit "Search", class: "flight-search__submit" %>
+  <% end %>
+</div>
+
+<div class="flights-result">
+  <% if @searched_for_flight %>
+    <% if @flights.any? %>
+      <h2 class="flights-result__title">Available Flight Options</h2>
+      <%= form_with url: flights_path, method: :get do |form| %>
+        <div class="flights-result__list">
+          <% @flights.each do |flight| %>
+            <label class="flights-result__option">
+              <%= form.radio_button :flight_id, flight.id %>
+              <span class="flights-result__details">
+                <span class="flights-result__flight-number">Flight <%= flight.flight_number %></span>
+                <span class="flights-result__meta">
+                  &mdash; <%= flight.departure_airport_code %> → <%= flight.arrival_airport_code %>
+                  · <%= flight.departure_time.strftime("%B %d, %Y %H:%M") %>
+                  · <%= flight.flight_duration %> min
+                </span>
+              </span>
+            </label>
+          <% end %>
+        </div>
+        <%= form.submit "Book Selected Flight", class: "flights-result__submit" %>
+      <% end %>
+    <% else %>
+      <p class="flights-result__empty">Sorry, we could not find any flights with your specified criteria.</p>
+    <% end %>
   <% end %>
 </div>
