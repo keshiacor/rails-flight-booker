@@ -96,7 +96,7 @@ body {
   font-size: 1.05rem;
   font-weight: 700;
   letter-spacing: .06em;
-  color: #fff;
+  color: #030202;
   background: linear-gradient(135deg, var(--purple) 0%, var(--peach) 100%);
   border: none;
   border-radius: 10px;
@@ -189,7 +189,7 @@ body {
   font-size: 1.05rem;
   font-weight: 700;
   letter-spacing: .06em;
-  color: #fff;
+  color: #060606;
   background: linear-gradient(135deg, var(--purple) 0%, var(--peach) 100%);
   border: none;
   border-radius: 10px;
