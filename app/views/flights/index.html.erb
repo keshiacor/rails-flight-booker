@@ -42,6 +42,7 @@
                   · <%= flight.flight_duration %> min
                 </span>
               </span>
+              <%= form.hidden_field :passenger_count, value: params[:passenger_count]%>
             </label>
           <% end %>
         </div>
