@@ -1,0 +1,391 @@
+/* ── Retro Watercolor Flight Booker ── */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lora:wght@400;500&display=swap');
+
+:root {
+  --peach:       #f5c6a5;
+  --peach-light: #fce4d4;
+  --purple:      #b197c9;
+  --purple-light:#ddd0eb;
+  --purple-dark: #7b5ea0;
+  --cream:       #fdf6ef;
+  --text:        #3e2f4f;
+  --border:      #d4b8e0;
+}
+
+/* ── Base ── */
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Lora', Georgia, serif;
+  color: var(--text);
+  background:
+    radial-gradient(ellipse at 20% 30%, rgba(245,198,165,.45) 0%, transparent 60%),
+    radial-gradient(ellipse at 75% 60%, rgba(177,151,201,.35) 0%, transparent 55%),
+    radial-gradient(ellipse at 50% 90%, rgba(245,198,165,.3)  0%, transparent 50%),
+    var(--cream);
+}
+
+/* ── Page wrapper ── */
+.flight-search {
+  max-width: 520px;
+  margin: 80px auto;
+  padding: 40px 36px;
+  background: rgba(255,255,255,.55);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 8px 32px rgba(123,94,160,.12);
+}
+
+/* ── Heading ── */
+.flight-search__title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.65rem;
+  font-weight: 700;
+  text-align: center;
+  margin: 0 0 32px;
+  color: var(--purple-dark);
+  letter-spacing: .02em;
+}
+
+/* ── Form field group ── */
+.flight-search__field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+/* ── Labels ── */
+.flight-search__field label {
+  font-size: .82rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  margin-bottom: 6px;
+  color: var(--purple-dark);
+}
+
+/* ── Select inputs ── */
+.flight-search__field select {
+  appearance: none;
+  font-family: 'Lora', Georgia, serif;
+  font-size: .95rem;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--cream) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237b5ea0' stroke-width='1.5' fill='none'/%3E%3C/svg%3E") no-repeat right 14px center;
+  color: var(--text);
+  cursor: pointer;
+  transition: border-color .2s, box-shadow .2s;
+}
+
+.flight-search__field select:focus {
+  outline: none;
+  border-color: var(--purple);
+  box-shadow: 0 0 0 3px rgba(177,151,201,.3);
+}
+
+/* ── Submit button ── */
+.flight-search__submit {
+  display: block;
+  width: 100%;
+  margin-top: 28px;
+  padding: 12px;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  color: #030202;
+  background: linear-gradient(135deg, var(--purple) 0%, var(--peach) 100%);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: opacity .2s, transform .15s;
+}
+
+.flight-search__submit:hover {
+  opacity: .88;
+  transform: translateY(-1px);
+}
+
+.flight-search__submit:active {
+  transform: translateY(0);
+}
+
+/* ── Results card ── */
+.flights-result {
+  max-width: 520px;
+  margin: 0 auto 80px;
+  padding: 0 36px;
+}
+
+.flights-result__title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-align: center;
+  margin: 0 0 24px;
+  color: var(--purple-dark);
+  letter-spacing: .02em;
+}
+
+.flights-result__list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.flights-result__option {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px 18px;
+  background: rgba(255,255,255,.55);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 4px 16px rgba(123,94,160,.08);
+  cursor: pointer;
+  transition: border-color .2s, box-shadow .2s;
+}
+
+.flights-result__option:hover {
+  border-color: var(--purple);
+  box-shadow: 0 4px 20px rgba(123,94,160,.18);
+}
+
+.flights-result__option input[type="radio"] {
+  accent-color: var(--purple-dark);
+  margin-top: 4px;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.flights-result__details {
+  font-size: .92rem;
+  line-height: 1.6;
+}
+
+.flights-result__flight-number {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 700;
+  color: var(--purple-dark);
+}
+
+.flights-result__meta {
+  color: var(--text);
+  opacity: .85;
+}
+
+/* ── Book button (same gradient style) ── */
+.flights-result__submit {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  color: #060606;
+  background: linear-gradient(135deg, var(--purple) 0%, var(--peach) 100%);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: opacity .2s, transform .15s;
+}
+
+.flights-result__submit:hover {
+  opacity: .88;
+  transform: translateY(-1px);
+}
+
+.flights-result__submit:active {
+  transform: translateY(0);
+}
+
+/* ── Empty state ── */
+.flights-result__empty {
+  text-align: center;
+  padding: 28px 20px;
+  background: rgba(255,255,255,.55);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  backdrop-filter: blur(6px);
+  color: var(--purple-dark);
+  font-style: italic;
+}
+/* ── Booking page ── */
+.booking {
+  max-width: 520px;
+  margin: 80px auto;
+  padding: 40px 36px;
+  background: rgba(255,255,255,.55);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 8px 32px rgba(123,94,160,.12);
+}
+
+.booking__title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-align: center;
+  margin: 0 0 8px;
+  color: var(--purple-dark);
+  letter-spacing: .02em;
+}
+
+.booking__subtitle {
+  text-align: center;
+  font-size: .9rem;
+  margin: 0 0 20px;
+  opacity: .8;
+}
+
+.booking__flight-info {
+  list-style: none;
+  padding: 16px 20px;
+  margin: 0 0 28px;
+  background: rgba(255,255,255,.4);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.booking__flight-info li {
+  padding: 6px 0;
+  font-size: .92rem;
+}
+
+.booking__flight-info li strong {
+  color: var(--purple-dark);
+}
+
+.booking__passenger {
+  padding: 20px;
+  margin-bottom: 18px;
+  background: rgba(255,255,255,.4);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
+
+.booking__passenger-heading {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--purple-dark);
+  margin: 0 0 14px;
+}
+
+.booking__field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 14px;
+}
+
+.booking__field label {
+  font-size: .82rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  margin-bottom: 6px;
+  color: var(--purple-dark);
+}
+
+.booking__field input[type="text"],
+.booking__field input[type="email"] {
+  font-family: 'Lora', Georgia, serif;
+  font-size: .95rem;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--cream);
+  color: var(--text);
+  transition: border-color .2s, box-shadow .2s;
+}
+
+.booking__field input:focus {
+  outline: none;
+  border-color: var(--purple);
+  box-shadow: 0 0 0 3px rgba(177,151,201,.3);
+}
+
+.booking__submit {
+  display: block;
+  width: 100%;
+  margin-top: 24px;
+  padding: 12px;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  color: #fff;
+  background: linear-gradient(135deg, var(--purple) 0%, var(--peach) 100%);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: opacity .2s, transform .15s;
+}
+
+.booking__submit:hover {
+  opacity: .88;
+  transform: translateY(-1px);
+}
+
+.booking__submit:active {
+  transform: translateY(0);
+}
+
+.booking__notice {
+  text-align: center;
+  padding: 12px 18px;
+  margin: 0 0 24px;
+  background: rgba(177,151,201,.15);
+  border: 1px solid var(--purple);
+  border-radius: 10px;
+  color: var(--purple-dark);
+  font-size: .92rem;
+}
+
+.booking__passenger-detail {
+  margin: 0 0 6px;
+  font-size: .92rem;
+}
+
+.booking__passenger-detail strong {
+  color: var(--purple-dark);
+}
+
+.booking__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.booking__header .booking__title {
+  margin: 0;
+}
+
+.booking__back-link {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: .82rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  color: var(--purple-dark);
+  text-decoration: none;
+  padding: 8px 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: rgba(255,255,255,.4);
+  transition: background .2s, border-color .2s;
+  white-space: nowrap;
+}
+
+.booking__back-link:hover {
+  background: rgba(177,151,201,.15);
+  border-color: var(--purple);
+}
