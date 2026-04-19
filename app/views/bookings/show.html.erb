@@ -1,0 +1,27 @@
+<div class="booking">
+  <div class="booking__header">
+    <h2 class="booking__title">Booking Confirmation</h2>
+    <%= link_to "Search for more flights", flights_path, class: "booking__back-link" %>
+  </div>
+
+  <% if notice.present? %>
+    <p class="booking__notice"><%= notice %></p>
+  <% end %>
+
+  <p class="booking__subtitle">Flight Details</p>
+  <ul class="booking__flight-info">
+    <li><strong>Flight Number:</strong> <%= @booking.flight.flight_number %></li>
+    <li><strong>Departure:</strong> <%= @booking.flight.departure_airport_code %> at <%= @booking.flight.departure_time.strftime("%B %d, %Y %H:%M") %></li>
+    <li><strong>Arrival:</strong> <%= @booking.flight.arrival_airport_code %></li>
+    <li><strong>Duration:</strong> <%= @booking.flight.flight_duration %> min</li>
+  </ul>
+
+  <p class="booking__subtitle">Passengers</p>
+  <% @booking.passengers.each_with_index do |passenger, index| %>
+    <div class="booking__passenger">
+      <h3 class="booking__passenger-heading">Passenger #<%= index + 1 %></h3>
+      <p class="booking__passenger-detail"><strong>Name:</strong> <%= passenger.name %></p>
+      <p class="booking__passenger-detail"><strong>Email:</strong> <%= passenger.email %></p>
+    </div>
+  <% end %>
+</div>

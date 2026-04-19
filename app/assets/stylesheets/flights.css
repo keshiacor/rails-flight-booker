@@ -338,3 +338,54 @@ body {
 .booking__submit:active {
   transform: translateY(0);
 }
+
+.booking__notice {
+  text-align: center;
+  padding: 12px 18px;
+  margin: 0 0 24px;
+  background: rgba(177,151,201,.15);
+  border: 1px solid var(--purple);
+  border-radius: 10px;
+  color: var(--purple-dark);
+  font-size: .92rem;
+}
+
+.booking__passenger-detail {
+  margin: 0 0 6px;
+  font-size: .92rem;
+}
+
+.booking__passenger-detail strong {
+  color: var(--purple-dark);
+}
+
+.booking__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.booking__header .booking__title {
+  margin: 0;
+}
+
+.booking__back-link {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: .82rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  color: var(--purple-dark);
+  text-decoration: none;
+  padding: 8px 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: rgba(255,255,255,.4);
+  transition: background .2s, border-color .2s;
+  white-space: nowrap;
+}
+
+.booking__back-link:hover {
+  background: rgba(177,151,201,.15);
+  border-color: var(--purple);
+}
