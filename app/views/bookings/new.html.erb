@@ -1,0 +1,31 @@
+<div class="booking">
+  <h2 class="booking__title">Booking Details</h2>
+  <p class="booking__subtitle">You have selected the following flight:</p>
+  <ul class="booking__flight-info">
+    <li><strong>Flight Number:</strong> <%= @booking.flight.flight_number %></li>
+    <li><strong>Departure:</strong> <%= @booking.flight.departure_airport_code %> at <%= @booking.flight.departure_time.strftime("%B %d, %Y %H:%M") %></li>
+    <li><strong>Arrival:</strong> <%= @booking.flight.arrival_airport_code %></li>
+  </ul>
+
+  <%= form_with model: @booking do |form| %>
+    <%= form.hidden_field :flight_id %>
+    <h2 class="booking__title">Passenger Information</h2>
+    <p class="booking__subtitle">Please fill out the details for each passenger:</p>
+
+    <%= form.fields_for :passengers do |passenger_form| %>
+      <div class="booking__passenger">
+        <h3 class="booking__passenger-heading">Passenger #<%= passenger_form.index + 1 %></h3>
+        <div class="booking__field">
+          <%= passenger_form.label :name, "Full Name" %>
+          <%= passenger_form.text_field :name %>
+        </div>
+        <div class="booking__field">
+          <%= passenger_form.label :email, "Email" %>
+          <%= passenger_form.email_field :email %>
+        </div>
+      </div>
+    <% end %>
+
+    <%= form.submit "Confirm Booking", class: "booking__submit" %>
+  <% end %>
+</div>

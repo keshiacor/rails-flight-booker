@@ -217,3 +217,124 @@ body {
   color: var(--purple-dark);
   font-style: italic;
 }
+/* ── Booking page ── */
+.booking {
+  max-width: 520px;
+  margin: 80px auto;
+  padding: 40px 36px;
+  background: rgba(255,255,255,.55);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 8px 32px rgba(123,94,160,.12);
+}
+
+.booking__title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-align: center;
+  margin: 0 0 8px;
+  color: var(--purple-dark);
+  letter-spacing: .02em;
+}
+
+.booking__subtitle {
+  text-align: center;
+  font-size: .9rem;
+  margin: 0 0 20px;
+  opacity: .8;
+}
+
+.booking__flight-info {
+  list-style: none;
+  padding: 16px 20px;
+  margin: 0 0 28px;
+  background: rgba(255,255,255,.4);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.booking__flight-info li {
+  padding: 6px 0;
+  font-size: .92rem;
+}
+
+.booking__flight-info li strong {
+  color: var(--purple-dark);
+}
+
+.booking__passenger {
+  padding: 20px;
+  margin-bottom: 18px;
+  background: rgba(255,255,255,.4);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
+
+.booking__passenger-heading {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--purple-dark);
+  margin: 0 0 14px;
+}
+
+.booking__field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 14px;
+}
+
+.booking__field label {
+  font-size: .82rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  margin-bottom: 6px;
+  color: var(--purple-dark);
+}
+
+.booking__field input[type="text"],
+.booking__field input[type="email"] {
+  font-family: 'Lora', Georgia, serif;
+  font-size: .95rem;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--cream);
+  color: var(--text);
+  transition: border-color .2s, box-shadow .2s;
+}
+
+.booking__field input:focus {
+  outline: none;
+  border-color: var(--purple);
+  box-shadow: 0 0 0 3px rgba(177,151,201,.3);
+}
+
+.booking__submit {
+  display: block;
+  width: 100%;
+  margin-top: 24px;
+  padding: 12px;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  color: #fff;
+  background: linear-gradient(135deg, var(--purple) 0%, var(--peach) 100%);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: opacity .2s, transform .15s;
+}
+
+.booking__submit:hover {
+  opacity: .88;
+  transform: translateY(-1px);
+}
+
+.booking__submit:active {
+  transform: translateY(0);
+}
