@@ -29,7 +29,7 @@
   <% if @searched_for_flight %>
     <% if @flights.any? %>
       <h2 class="flights-result__title">Available Flight Options</h2>
-      <%= form_with url: flights_path, method: :get do |form| %>
+      <%= form_with url: new_booking_path, method: :get do |form| %>
         <div class="flights-result__list">
           <% @flights.each do |flight| %>
             <label class="flights-result__option">
@@ -42,10 +42,10 @@
                   · <%= flight.flight_duration %> min
                 </span>
               </span>
-              <%= form.hidden_field :passenger_count, value: params[:passenger_count]%>
             </label>
           <% end %>
         </div>
+        <%= form.hidden_field :passenger_count, value: params[:passenger_count]%>
         <%= form.submit "Book Selected Flight", class: "flights-result__submit" %>
       <% end %>
     <% else %>
